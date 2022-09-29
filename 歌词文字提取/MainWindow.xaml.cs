@@ -100,6 +100,14 @@ namespace 歌词文字提取
 
         private void YesButton_Click(object sender, RoutedEventArgs e)
         {
+            if(InputTextBox.Text.Length == 0)
+            {
+                return;
+            }
+            if (!Directory.Exists(soundSourcePath))
+            {
+                return;
+            }
             soundSourcePath = InputTextBox.Text;
             InputBox.Visibility = Visibility.Collapsed;
             string[] paths = Directory.GetFiles(soundSourcePath);
